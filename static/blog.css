@@ -157,7 +157,13 @@ body {
   color-scheme: dark;
 }
 
-#postamble { display: none; }
+#postamble {
+  margin-top: calc(var(--s) * 2);
+  padding-top: calc(var(--s) * 0.75);
+  border-top: 1px solid var(--border);
+  font-size: 0.875rem;
+  color: var(--text-light);
+}
 
 /* Typography */
 :is(h1, h2, h3) {
