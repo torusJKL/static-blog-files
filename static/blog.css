@@ -1,0 +1,226 @@
+/* Modern minimal blog stylesheet */
+
+:root {
+  --text: #333;
+  --text-light: #666;
+  --link: #0066cc;
+  --border: #ddd;
+  --bg: #fff;
+  --bg-light: #f8f8f8;
+  
+  --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --mono: "SF Mono", Monaco, Consolas, monospace;
+  
+  --s: 1rem;
+  --radius: 4px;
+  
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html {
+  font: clamp(15px, 1vw + 14px, 17px)/1.6 var(--font);
+  color: var(--text);
+  background: var(--bg);
+  text-size-adjust: 100%;
+}
+
+body {
+  max-width: min(720px, 95vw);
+  margin-inline: auto;
+  padding: var(--s);
+}
+
+#preamble, #postamble { display: none; }
+
+/* Typography */
+:is(h1, h2, h3) {
+  font-weight: 600;
+  line-height: 1.25;
+  color: #222;
+  text-wrap: balance;
+  margin-block: calc(var(--s) * 1.5) calc(var(--s) * 0.5);
+}
+
+h1 { font-size: clamp(1.5rem, 4vw, 1.75rem); }
+h2 { font-size: clamp(1.3rem, 3vw, 1.5rem); }
+h3 { font-size: clamp(1.1rem, 2.5vw, 1.25rem); }
+
+:is(p, ul, ol, figure, table, pre, blockquote) {
+  margin-bottom: var(--s);
+}
+
+a {
+  color: var(--link);
+  text-decoration: none;
+  &:hover { text-decoration: underline; }
+}
+
+/* Posts */
+.post-date {
+  font-size: 0.875rem;
+  color: var(--text-light);
+  margin-block: calc(var(--s) * 2) calc(var(--s) * 0.25);
+}
+
+.post-title {
+  font-size: clamp(1.5rem, 5vw, 1.75rem);
+  margin-bottom: var(--s);
+  
+  a {
+    color: inherit;
+    &:hover { color: var(--link); }
+  }
+}
+
+.title {
+  font-size: clamp(1.75rem, 5vw, 2rem);
+  margin-block: var(--s);
+  padding-bottom: calc(var(--s) * 0.5);
+  border-bottom: 2px solid var(--bg-light);
+}
+
+/* Table of Contents */
+#table-of-contents {
+  background: var(--bg-light);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: var(--s);
+  margin-block: calc(var(--s) * 1.5);
+  
+  h2 {
+    font-size: 1.1rem;
+    margin: 0 0 calc(var(--s) * 0.75);
+    padding-bottom: calc(var(--s) * 0.5);
+    border-bottom: 1px solid var(--border);
+  }
+  
+  ul {
+    padding-left: calc(var(--s) * 1.25);
+    margin: 0;
+    
+    li { margin: calc(var(--s) * 0.25) 0; }
+  }
+  
+  a {
+    color: #555;
+    &:hover { color: var(--link); }
+  }
+}
+
+/* Outlines */
+:is(.outline-2, .outline-3) { margin-block: calc(var(--s) * 1.5); }
+:is(.section-number-2, .section-number-3) { color: var(--text-light); font-weight: 400; }
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+th, td {
+  padding: calc(var(--s) * 0.5) calc(var(--s) * 0.75);
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+th {
+  font-weight: 600;
+  background: #f5f5f5;
+  border-bottom-width: 2px;
+}
+
+tr:hover { background: var(--bg-light); }
+
+/* Images */
+img, .img-responsive {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+}
+
+figure { margin-block: calc(var(--s) * 1.5); }
+
+/* Tags */
+.taglist {
+  font-size: 0.875rem;
+  color: var(--text-light);
+  margin-block: calc(var(--s) * 1.5);
+  padding-top: calc(var(--s) * 0.5);
+  border-top: 1px solid var(--bg-light);
+  
+  a {
+    display: inline-block;
+    background: #f0f0f0;
+    padding: 0.2em 0.5em;
+    border-radius: 3px;
+    font-size: 0.8em;
+    color: #555;
+    margin: 0.1em;
+    &:hover { background: var(--border); }
+  }
+}
+
+.tags-title {
+  font-size: 1.25rem;
+  margin-block: calc(var(--s) * 1.5) calc(var(--s) * 0.5);
+}
+
+#archive {
+  margin-top: calc(var(--s) * 2);
+  padding-top: var(--s);
+  border-top: 2px solid var(--bg-light);
+  a { font-weight: 500; }
+}
+
+/* Lists */
+ul, ol {
+  padding-left: calc(var(--s) * 1.5);
+  li { margin: calc(var(--s) * 0.35) 0; }
+}
+
+/* Code */
+code, pre {
+  font-family: var(--mono);
+  background: #f4f4f4;
+  border-radius: var(--radius);
+}
+
+code { font-size: 0.9em; padding: 0.15em 0.3em; }
+
+pre {
+  padding: var(--s);
+  overflow-x: auto;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  code { background: none; padding: 0; }
+}
+
+/* Blockquotes */
+blockquote {
+  padding: calc(var(--s) * 0.5) var(--s);
+  border-left: 4px solid var(--border);
+  color: #555;
+  background: var(--bg-light);
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin-block: calc(var(--s) * 2);
+}
+
+@media (min-width: 1200px) {
+  body { max-width: 800px; }
+}
+
+@media print {
+  body { font-size: 12pt; line-height: 1.4; }
+  a { text-decoration: underline; color: #000; }
+  #table-of-contents { border: 1px solid #ccc; break-inside: avoid; }
+}
