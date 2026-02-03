@@ -35,7 +35,34 @@ body {
   padding: var(--s);
 }
 
-#preamble, #postamble { display: none; }
+/* Preamble - Site Header/Navigation */
+#preamble {
+  margin-bottom: calc(var(--s) * 1.5);
+  padding-bottom: calc(var(--s) * 0.5);
+  border-bottom: 1px solid var(--border);
+}
+
+#preamble .header {
+  display: flex;
+  gap: var(--s);
+}
+
+#preamble .sitelinks {
+  display: flex;
+  gap: calc(var(--s) * 0.5);
+  align-items: center;
+}
+
+#preamble .sitelinks a {
+  color: var(--text);
+  font-weight: 500;
+}
+
+#preamble .sitelinks a:hover {
+  color: var(--link);
+}
+
+#postamble { display: none; }
 
 /* Typography */
 :is(h1, h2, h3) {
