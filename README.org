@@ -1,0 +1,65 @@
+* About
+
+This contains the files for my blog on [[https://www.galbuki.ch/blog][galbuki.ch/blog]].
+
+* Tech stack
+The source files are writen in plaintext Emacs org files.
+
+The static web pages are created using [[https://github.com/bastibe/org-static-blog][org-static-blog]].
+
+* Emacs configuration
+To produce the pages I have configured the package as follow.
+#+begin_src emacs-lisp
+  (use-package org-static-blog
+    :vc ( :url "https://github.com/torusJKL/org-static-blog"
+          :branch "custom-filename-function")
+    :ensure nil
+    :defer t
+    :custom
+    (org-static-blog-posts-directory "~/blog/org")
+    (org-static-blog-drafts-directory "~/blog/drafts")
+    (org-static-blog-publish-directory "~/blog/html")
+    (org-static-blog-enable-tags t)
+    (org-static-blog-publish-title "Gal Buki's blog")
+    (org-static-blog-publish-url "/")
+    (org-static-blog-use-preview t)
+    (org-static-blog-preview-ellipsis "continued ...")
+    (org-static-blog-preview-link-p t)
+    (org-static-blog-preview-date-first-p nil)
+    (org-static-blog-enable-og-tags t)
+    (org-export-with-section-numbers nil)
+    (org-static-blog-page-header "<link rel=\"stylesheet\" type=\"text/css\" href=\"./static/blog.css\">")
+    (org-static-blog-page-preamble
+     "<div class=\"header\">
+    <div class=\"sitelinks\">
+      <a href=\"/index.html\">Home</a>
+      |
+      <a href=\"/archive.html\">All Posts</a>
+    </div>
+    <label class=\"theme-toggle\" title=\"Toggle dark mode\">
+      <input type=\"checkbox\" id=\"theme-toggle\">
+      <span></span>
+    </label>
+  </div>")
+    (org-static-blog-page-postamble
+     "<div>Powered by <a href=\"https://www.gnu.org/software/emacs/\" target=\"_blank\">Emacs</a> &
+  <a href=\"https://github.com/bastibe/org-static-blog/\" target=\"_blank\">Org Static Blog</a>
+  </div>"))
+#+end_src
+
+** custom naming function
+I'm using a not yet merged feature to rename my org files when creating the html files.
+#+begin_src emacs-lisp
+  (defun my/org-blog-title-date-filename (post-filename metadata)
+    "Generate filename like: 20240115--my-post-title.html
+       Converts title to lowercase, spaces to dashes, and removes unsafe filename characters."
+    (let-alist metadata
+      (let* ((date-str (format-time-string "%Y%m%d" .date))
+             ;; Remove unsafe filename characters: : / \ ? * < > | "
+             (title-safe (replace-regexp-in-string "[:\\/\\\\?*<>|\"]" "" .title))
+             (title-lower (downcase title-safe))
+             (title-with-dashes (replace-regexp-in-string " " "-" title-lower)))
+        (concat date-str "--" title-with-dashes ".html"))))
+
+  (setq org-static-blog-post-filename-function #'my/org-blog-title-date-filename)
+#+end_src
