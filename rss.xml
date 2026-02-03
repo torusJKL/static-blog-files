@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+<title><![CDATA[Gal Buki's blog]]></title>
+<description><![CDATA[Gal Buki's blog]]></description>
+<link>/blog/</link>
+<lastBuildDate>Wed, 04 Feb 2026 11:24:58 +0200</lastBuildDate>
+<item>
+  <title><![CDATA[Hello World]]></title>
+  <description><![CDATA[
+<nav id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orga1e2dfc">My first blog</a></li>
+<li><a href="#orgfa7e5ce">This time it's simpler</a></li>
+</ul>
+</div>
+</nav>
+<div id="outline-container-orga1e2dfc" class="outline-2">
+<h2 id="orga1e2dfc">My first blog</h2>
+<div class="outline-text-2" id="text-orga1e2dfc">
+<p>
+This is not my first blog. I had a blog back in 2004 (under a different domain). <br>
+I used <a href="https://wordpress.org/">Wordpress</a> which at the time was quite revolutionary by providing a nice interface to edit my posts.
+But the downside was that it was a complex framework that you had to keep up to date every so often.
+</p>
+
+<p>
+I don't remember how difficult it was but needless to say I did not go and installed every update.
+One day in 2006 my blog was hacked and all my posts replaced.
+</p>
+
+<p>
+I had a backup of the database so the post weren't completely lost.
+But restoring them was too big of a hassle for me at the time.
+</p>
+
+<p>
+That was the end of my blog.
+</p>
+</div>
+</div>
+<div id="outline-container-orgfa7e5ce" class="outline-2">
+<h2 id="orgfa7e5ce">This time it's simpler</h2>
+<div class="outline-text-2" id="text-orgfa7e5ce">
+<p>
+I have been using <a href="https://www.gnu.org/software/emacs/">Emacs</a> for some time and like the idea that everything is stored in text files. <br>
+Text files are timeless.
+</p>
+
+<p>
+It became clear to me that my future blog needs to be based on text files and an easy way to create html files from them. <br>
+Meet <a href="https://github.com/bastibe/org-static-blog">org-static-blog</a> an Emacs package to create static html files from org documents.
+</p>
+
+<p>
+I'll might write more about my workflow. <br>
+For now I'm happy I was able to revive my blog.
+</p>
+</div>
+</div>
+<div class="taglist"><a href="/blog/tags.html"><span class="tag-label">Tags</span></a><span class="tag-separator">: </span><span class="taglist__tags"><a href="/blog/tag-misc.html" class="tag" data-tag="misc" data-index="0">misc</a> <a href="/blog/tag-first.html" class="tag" data-tag="first" data-index="1">first</a> </span></div>]]></description>
+  <category><![CDATA[misc]]></category>
+  <category><![CDATA[first]]></category>
+  <link>/blog/20260203T195305--hello-world__misc.html</link>
+  <guid>/blog/20260203T195305--hello-world__misc.html</guid>
+  <pubDate>Tue, 03 Feb 2026 19:53:00 +0200</pubDate>
+</item>
+</channel>
+</rss>
