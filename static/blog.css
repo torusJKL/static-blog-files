@@ -281,17 +281,23 @@ figure { margin-block: calc(var(--s) * 1.5); }
   margin-block: calc(var(--s) * 1.5);
   padding-top: calc(var(--s) * 0.5);
   border-top: 1px solid var(--bg-light);
-  
-  a {
-    display: inline-block;
-    background: var(--tag-bg);
-    padding: 0.2em 0.5em;
-    border-radius: 3px;
-    font-size: 0.8em;
-    color: var(--text);
-    margin: 0.1em;
-    &:hover { background: var(--border); }
-  }
+}
+
+/* Hide "Tags:" label and separator */
+.taglist > a[href*="tags.html"],
+.tag-separator {
+  display: none;
+}
+
+.taglist .tag {
+  display: inline-block;
+  background: var(--tag-bg);
+  padding: 0.2em 0.5em;
+  border-radius: 3px;
+  font-size: 0.8em;
+  color: var(--text);
+  margin: 0.1em;
+  &:hover { background: var(--border); }
 }
 
 .tags-title {
