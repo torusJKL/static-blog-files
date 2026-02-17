@@ -44,7 +44,17 @@ To produce the pages I have configured the package as follow.
     (org-static-blog-page-postamble
      "<div>Powered by <a href=\"https://www.gnu.org/software/emacs/\" target=\"_blank\">Emacs</a> &
   <a href=\"https://github.com/bastibe/org-static-blog/\" target=\"_blank\">Org Static Blog</a>
-  </div>"))
+  </div>")
+    :config
+    ;; replacement function that wraps tag with <span></span>
+    (defun org-static-blog-assemble-tags-archive-tag (tag)
+      "Assemble single TAG for all filenames (custom version)."
+      (let ((post-filenames (cdr tag)))
+        (setq post-filenames
+              (sort post-filenames (lambda (x y) (time-less-p (org-static-blog-get-date x)
+                                                              (org-static-blog-get-date y)))))
+        (concat "<h1 class=\"tags-title\">" (org-static-blog-gettext 'posts-tagged) " \"<span>" (downcase (car tag)) "</span>\":</h1>\n"
+                (apply 'concat (mapcar 'org-static-blog-get-post-summary post-filenames))))))
 #+end_src
 
 ** custom naming function
