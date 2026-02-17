@@ -212,6 +212,11 @@ a {
   border-bottom: 2px solid var(--bg-light);
 }
 
+/* Hide "Tags" title on tags.html page only */
+#content > h1.title:has(+ h1.tags-title) {
+  display: none;
+}
+
 /* Table of Contents */
 #table-of-contents {
   background: var(--bg-light);
@@ -301,8 +306,19 @@ figure { margin-block: calc(var(--s) * 1.5); }
 }
 
 .tags-title {
-  font-size: 1.25rem;
-  margin-block: calc(var(--s) * 1.5) calc(var(--s) * 0.5);
+  font-size: 0;
+  font-weight: 600;
+  margin-block: calc(var(--s) * 2) calc(var(--s) * 0.5);
+  padding-bottom: calc(var(--s) * 0.5);
+  border-bottom: 2px solid var(--bg-light);
+  
+  span {
+    font-size: clamp(1.75rem, 5vw, 2rem);
+    
+    &::after {
+      content: ":";
+    }
+  }
 }
 
 #archive {
