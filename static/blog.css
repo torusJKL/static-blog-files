@@ -217,6 +217,16 @@ a {
   display: none;
 }
 
+/* Hide post dates on tags.html page only */
+#content:has(> h1.title + h1.tags-title) h1.tags-title ~ .post-date {
+  display: none;
+}
+
+/* Smaller post titles on tags.html page only */
+#content:has(> h1.title + h1.tags-title) .post-title {
+  font-size: clamp(1.2rem, 3.5vw, 1.4rem);
+}
+
 /* Table of Contents */
 #table-of-contents {
   background: var(--bg-light);
