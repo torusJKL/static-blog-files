@@ -1,51 +1,51 @@
 /* Modern minimal blog stylesheet with dark mode */
 
 :root {
-  /* Dark mode colors (default) */
-  --text: #e0e0e0;
-  --text-light: #999;
-  --link: #66b3ff;
-  --border: #444;
-  --bg: #1a1a1a;
-  --bg-light: #252525;
-  --code-bg: #2d2d2d;
-  --tag-bg: #333;
-  
+  /* Light mode colors (default) */
+  --text: #333;
+  --text-light: #666;
+  --link: #0066cc;
+  --border: #ddd;
+  --bg: #fff;
+  --bg-light: #f8f8f8;
+  --code-bg: #f4f4f4;
+  --tag-bg: #f0f0f0;
+
   --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --mono: "SF Mono", Monaco, Consolas, monospace;
-  
+
   --s: 1rem;
   --radius: 4px;
-  
-  color-scheme: dark;
+
+  color-scheme: light;
 }
 
-/* Light mode - automatic based on system preference */
-@media (prefers-color-scheme: light) {
+/* Dark mode - automatic based on system preference */
+@media (prefers-color-scheme: dark) {
   :root {
-    --text: #333;
-    --text-light: #666;
-    --link: #0066cc;
-    --border: #ddd;
-    --bg: #fff;
-    --bg-light: #f8f8f8;
-    --code-bg: #f4f4f4;
-    --tag-bg: #f0f0f0;
-    color-scheme: light;
+    --text: #e0e0e0;
+    --text-light: #999;
+    --link: #66b3ff;
+    --border: #444;
+    --bg: #1a1a1a;
+    --bg-light: #252525;
+    --code-bg: #2d2d2d;
+    --tag-bg: #333;
+    color-scheme: dark;
   }
 }
 
-/* Manual override: Force dark mode when toggle is NOT checked (even if system is light) */
+/* Manual override: Force light mode when toggle is NOT checked (even if system is dark) */
 :has(#theme-toggle:not(:checked)) {
-  --text: #e0e0e0 !important;
-  --text-light: #999 !important;
-  --link: #66b3ff !important;
-  --border: #444 !important;
-  --bg: #1a1a1a !important;
-  --bg-light: #252525 !important;
-  --code-bg: #2d2d2d !important;
-  --tag-bg: #333 !important;
-  color-scheme: dark !important;
+  --text: #333 !important;
+  --text-light: #666 !important;
+  --link: #0066cc !important;
+  --border: #ddd !important;
+  --bg: #fff !important;
+  --bg-light: #f8f8f8 !important;
+  --code-bg: #f4f4f4 !important;
+  --tag-bg: #f0f0f0 !important;
+  color-scheme: light !important;
 }
 
 * {
@@ -137,24 +137,24 @@ body {
 
 /* Dynamic label text */
 .theme-toggle span::before {
-  content: "Light";
-}
-
-:has(#theme-toggle:checked) .theme-toggle span::before {
   content: "Dark";
 }
 
-/* Manual light mode override when toggle is checked */
+:has(#theme-toggle:checked) .theme-toggle span::before {
+  content: "Light";
+}
+
+/* Manual dark mode override when toggle is checked */
 :has(#theme-toggle:checked) {
-  --text: #333;
-  --text-light: #666;
-  --link: #0066cc;
-  --border: #ddd;
-  --bg: #fff;
-  --bg-light: #f8f8f8;
-  --code-bg: #f4f4f4;
-  --tag-bg: #f0f0f0;
-  color-scheme: light;
+  --text: #e0e0e0;
+  --text-light: #999;
+  --link: #66b3ff;
+  --border: #444;
+  --bg: #1a1a1a;
+  --bg-light: #252525;
+  --code-bg: #2d2d2d;
+  --tag-bg: #333;
+  color-scheme: dark;
 }
 
 #postamble {
